@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing:border-box;
+            background-color: #ecf0f3;
+            font-family: sans-serif;
+            outline: none;
+        }
+        .title1
+        {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+   .Calculator
+        {
+      
+            background-color: #ecf0f3;
+            padding: 15px;
+            border-radius: 30px;
+            box-shadow:inset 5px 5px 12px #fff,
+            5px 5px 12px rgba(0,0,0,0.16);
+            display:grid;
+            grid-template-columns: repeat(4,80px);
+        }
+        input[title="res"]
+        {
+         grid-column: span 4;
+         height:70px ;
+         width: 320px;
+         background-color: #ecf0f3;
+         box-shadow: inset -5px -5px 12px  #fff,
+         5px 5px 12px rgba(0,0,0,0.16);
+         border: none;
+         border-radius: 30px;
+         color: rgb(70, 70,70);
+         font-size: 50px;
+         text-align: end;
+         margin:30px auto;
+         padding: 30px;
+        }
+
+        input[onclick]
+        {
+          height: 60px;
+          width: 60px;
+          background-color: #ecf0f3;
+          box-shadow: inset -5px -5px 12px  #fff,
+         inset 5px 5px 12px rgba(0,0,0,0.16);
+         border: none;
+         border-radius: 50%;
+         padding: 10px;
+         margin: 8px;
+         font-size: 20px;
+        }
+      
+    input[onclick$="top"]
+    {
+       
+    
+          padding: 5px;
+     
+    }
+    #equal
+    {
+        width:120px;
+        border-radius: 50px;
+
+    }
+    </style>
+</head>
+<body>
+    <div class="title1">
+        <div class="Calculator">
+            <input type="text" placeholder="0" title="res" id="output" >
+            <input type="button" onclick="Clear()-top" value="clear">
+            <input type="button" onclick="del()-top" value="delete">
+            <input type="button" onclick="display('%')" value="%">
+            <input type="button" onclick="display('/')" value="/">
+            <input type="button" onclick="display('7')" value="7">
+            <input type="button" onclick="display('8')" value="8">
+            <input type="button" onclick="display('9')" value="9">
+            <input type="button" onclick="display('*')" value="%">
+            <input type="button" onclick="display('4')" value="4">
+            <input type="button" onclick="display('5')" value="5">
+            <input type="button" onclick="display('6')" value="6">
+            <input type="button" onclick="display('-')" value="-">
+            <input type="button" onclick="display('1')" value="1">
+            <input type="button" onclick="display('2')" value="2">
+            <input type="button" onclick="display('3')" value="3">
+            <input type="button" onclick="display('+')" value="+">
+            <input type="button" onclick="display('.')" value=".">
+            <input type="button" onclick="display('0')" value="0">
+            <input type="button" onclick="calculate()" id="equal" value="=">
+
+
+        </div>
+    </div>
+
+    <script>
+        let num=0;
+        let input=document.getElementById("output");
+        function display(num)
+        {
+            input.value=input.value+num;
+        }
+
+
+        function calculate()
+        {
+        try
+        {
+            input.value=eval(input.value);
+
+        }
+        catch
+        {
+           input.value="Invalid syntax";
+        }
+    }
+    function Clear()
+    {
+        input.value=" ";
+    }
+    function del()
+    {
+        input.value=input.value.slice(0,-1);
+    }
+
+    </script>
+</body>
+</html>
